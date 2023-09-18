@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://byfexjxobidhs"]
+
+[ext_resource type="Script" path="res://scripts/Countdown.gd" id="1_r7as6"]
+[ext_resource type="Script" path="res://scripts/LabelShow.gd" id="2_odhpa"]
+
+[node name="Timer" type="Node2D"]
+script = ExtResource("1_r7as6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 104.0
+offset_top = 116.0
+offset_right = 147.0
+offset_bottom = 161.0
+text = "10"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 49.0
+offset_top = 192.0
+offset_right = 89.0
+offset_bottom = 215.0
+text = "Time is over!"
+script = ExtResource("2_odhpa")
+
+[connection signal="timeover" from="." to="Label2" method="_on_timeover"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

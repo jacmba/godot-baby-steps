@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq55prccp82d0"]
+
+[ext_resource type="Script" path="res://scripts/Icon.gd" id="1_rnc67"]
+[ext_resource type="Texture2D" uid="uid://vj3o2fd6eovs" path="res://icon.svg" id="2_bsjo2"]
+
+[node name="Icon" type="Node2D"]
+position = Vector2(564, 256)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bsjo2")
+script = ExtResource("1_rnc67")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Click me!"
+
+[connection signal="pressed" from="Button" to="Sprite2D" method="_on_button_pressed"]
